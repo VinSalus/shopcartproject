@@ -15,3 +15,20 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+.class
+
+# testing
+/coverage
+
+# production
+/build
+shopcart/target
+
+# misc
+.idea
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
