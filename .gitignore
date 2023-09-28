@@ -26,6 +26,7 @@ buildNumber.properties
 shopcart/target
 
 # misc
+.pdf
 .idea
 .DS_Store
 .env.local
