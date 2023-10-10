@@ -1,11 +1,13 @@
 package com.shopcartproject.shopcart.entities;
 
+import com.shopcartproject.shopcart.enums.OrderStatus;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @AllArgsConstructor
@@ -13,13 +15,14 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "cart_user")
-public class User implements Serializable {
+@Table(name = "cart_order")
+public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private int id;
-    private String name;
-    private String email;
-    private String phone;
-    private String password;
+    private Date moment;
+    private OrderStatus orderStatus;
+    public double total(double x) {
+    return x + 1; //placeholder
+    }
 }

@@ -13,13 +13,10 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-@Table(name = "cart_user")
-public class User implements Serializable {
+@Table(name = "cart_pcategory")
+public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     private int id;
     private String name;
-    private String email;
-    private String phone;
-    private String password;
 }
