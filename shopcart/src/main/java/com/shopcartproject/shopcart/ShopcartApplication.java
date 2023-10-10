@@ -1,5 +1,6 @@
 package com.shopcartproject.shopcart;
 
+import com.shopcartproject.shopcart.enums.OrderStatus;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,7 @@ public class ShopcartApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShopcartApplication.class, args);
-		System.out.println("bom dia");
+		OrderStatus changu = OrderStatus.WAITING_PAYMENT;
+		System.out.println(changu);
 	}
 }
