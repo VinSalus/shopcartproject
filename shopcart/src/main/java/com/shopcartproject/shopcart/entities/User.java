@@ -2,10 +2,12 @@ package com.shopcartproject.shopcart.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -22,5 +24,6 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
-
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
 }

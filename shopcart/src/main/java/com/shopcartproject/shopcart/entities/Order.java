@@ -1,9 +1,7 @@
 package com.shopcartproject.shopcart.entities;
 
 import com.shopcartproject.shopcart.enums.OrderStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -25,4 +23,8 @@ public class Order implements Serializable {
     public double total(double x) {
     return x + 1; //placeholder
     }
+
+    @ManyToOne
+    @JoinColumn(name="user_id", referencedColumnName = "id")
+    private User user;
 }
