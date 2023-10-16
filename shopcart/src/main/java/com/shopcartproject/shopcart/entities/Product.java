@@ -1,11 +1,10 @@
 package com.shopcartproject.shopcart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -22,4 +21,14 @@ public class Product implements Serializable {
     private String description;
     private Double price;
     private String imgUrl;
+    @ManyToMany
+    @JoinTable(
+            name = "products_categories",
+            joinColumns = @JoinColumn(name="product_id", referencedColumnName = "id"),
+            inverseJoinColumns= @JoinColumn(name="category_id", referencedColumnName = "id")
+    )
+    private List<Category> categories;
+
+    @ManyToMany(mappedBy = "items")
+    private List<Order> orders;
 }

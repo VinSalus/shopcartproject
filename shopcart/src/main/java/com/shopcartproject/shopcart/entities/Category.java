@@ -2,10 +2,12 @@ package com.shopcartproject.shopcart.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -19,4 +21,6 @@ public class Category implements Serializable {
     @Id
     private int id;
     private String name;
+    @ManyToMany(mappedBy = "categories")
+    private List<Product> products;
 }

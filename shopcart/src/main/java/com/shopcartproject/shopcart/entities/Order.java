@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -26,5 +27,16 @@ public class Order implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
-    private User user;
+    private User client;
+
+    @OneToOne(mappedBy = "order")
+    private Payment payment;
+
+    @ManyToMany
+    @JoinTable(
+            name = "order_products",
+            joinColumns = @JoinColumn(name="order_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="product_id", referencedColumnName = "id")
+    )
+    private List<Product> items;
 }

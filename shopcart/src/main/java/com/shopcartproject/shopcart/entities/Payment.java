@@ -1,8 +1,6 @@
 package com.shopcartproject.shopcart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -19,5 +17,9 @@ public class Payment implements Serializable {
     private static final long serialVersionUID = 1;
     @Id
     private int id;
-    private Date moment;
+    private Date paymentMoment;
+
+    @OneToOne(optional = false)
+    @JoinColumn(name="order_id", referencedColumnName = "id")
+    private Order order;
 }
