@@ -4,7 +4,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/apidb
     username: randomuser
     password: randomuser
-    jpa:
+  jpa:
       database-platform: org.hibernate.dialect.PostgreSQLDialect
       hibernate:
         ddl-auto: 'create-drop'

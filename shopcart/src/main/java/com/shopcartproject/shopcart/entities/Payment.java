@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name = "cart_payment")
 public class Payment implements Serializable {
     private static final long serialVersionUID = 1;
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private Date paymentMoment;
 

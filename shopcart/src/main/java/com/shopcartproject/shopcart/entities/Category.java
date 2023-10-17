@@ -1,9 +1,6 @@
 package com.shopcartproject.shopcart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -18,7 +15,7 @@ import java.util.List;
 @Table(name = "cart_pcategory")
 public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     @ManyToMany(mappedBy = "categories")

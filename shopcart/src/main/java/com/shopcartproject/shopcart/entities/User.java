@@ -1,9 +1,6 @@
 package com.shopcartproject.shopcart.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -18,7 +15,7 @@ import java.util.List;
 @Table(name = "cart_user")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String email;
