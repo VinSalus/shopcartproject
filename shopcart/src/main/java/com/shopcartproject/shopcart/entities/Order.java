@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
 import java.util.List;
 
 @Entity
@@ -19,11 +19,8 @@ public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date moment;
+    private Instant moment;
     private OrderStatus orderStatus;
-    public double total(double x) {
-    return x + 1; //placeholder
-    }
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
@@ -39,4 +36,8 @@ public class Order implements Serializable {
             inverseJoinColumns = @JoinColumn(name="product_id", referencedColumnName = "id")
     )
     private List<Product> items;
+
+    public double total(double x) {
+        return x + 1; //placeholder
+    }
 }
