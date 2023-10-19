@@ -29,6 +29,6 @@ public class Product implements Serializable {
     )
     private List<Category> categories;
 
-    @ManyToMany(mappedBy = "items")
-    private List<Order> orders;
+//    @ManyToMany(mappedBy = "items")
+//    private List<Order> orders;
 }

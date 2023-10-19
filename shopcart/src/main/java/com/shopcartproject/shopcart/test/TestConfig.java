@@ -2,6 +2,7 @@ package com.shopcartproject.shopcart.test;
 
 import com.shopcartproject.shopcart.entities.Order;
 import com.shopcartproject.shopcart.entities.User;
+import com.shopcartproject.shopcart.enums.OrderStatus;
 import com.shopcartproject.shopcart.repositories.OrderRepository;
 import com.shopcartproject.shopcart.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +25,8 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User u1 = new User(1, "Jambo", "cristopher@gmail.com", "1194895401", "cumulus", null);
-        Order o1 = new Order(1, Instant.parse("2019-07-21T03:42:10Z"), null, u1, null, null);
+        User u1 = new User(1, "Jambo", "cristopher@gmail.com", "1194895401", "cumulus");
+        Order o1 = new Order(1, Instant.parse("2019-07-21T03:42:10Z"), OrderStatus.PAID, u1, null);
         userRepository.saveAll(Arrays.asList(u1));
         orderRepository.saveAll(Arrays.asList(o1));
     }

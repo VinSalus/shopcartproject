@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -21,6 +20,6 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
-    @OneToMany(mappedBy = "client")
-    private List<Order> orders;
+//    @OneToMany(mappedBy = "client")
+//    private List<Order> orders;
 }
