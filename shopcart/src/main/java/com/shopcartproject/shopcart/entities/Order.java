@@ -9,6 +9,8 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -24,7 +26,7 @@ public class Order implements Serializable {
     private int orderStatus;
 
     @ManyToOne
-    @JoinColumn(name="user_id", referencedColumnName = "id")
+    @JoinColumn(name="user_id")
     private User client;
 
     @OneToOne(mappedBy = "order")
@@ -47,6 +49,9 @@ public class Order implements Serializable {
         this.payment = payment;
         //this.items = items;
     }
+
+    @OneToMany(mappedBy="orderItem")
+    private Set <OrderItem> orderItems = new HashSet<>();
 
     public double total(double x) {
         return x + 1; //placeholder

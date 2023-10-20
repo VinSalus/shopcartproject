@@ -31,4 +31,7 @@ public class Product implements Serializable {
 
 //    @ManyToMany(mappedBy = "items")
 //    private List<Order> orders;
+
+//    @OneToMany(mappedBy = "orderItem")
+//    private Set<OrderItem> orderItems = new HashSet<>();
 }
