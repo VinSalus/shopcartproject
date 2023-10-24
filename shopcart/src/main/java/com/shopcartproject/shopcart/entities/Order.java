@@ -10,6 +10,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,27 +26,27 @@ public class Order implements Serializable {
     private Instant moment;
     private int orderStatus;
 
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User client;
+//    @ManyToOne
+//    @JoinColumn(name="user_id")
+//    private User client;
 
     @OneToOne(mappedBy = "order")
     private Payment payment;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "order_products",
-//            joinColumns = @JoinColumn(name="order_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(name="product_id", referencedColumnName = "id")
-//    )
-//    private List<Product> items;
+    @ManyToMany
+    @JoinTable(
+            name = "order_products",
+            joinColumns = @JoinColumn(name="order_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name="product_id", referencedColumnName = "id")
+    )
+    private List<Product> pitems;
 
-    public Order(int id, Instant moment, OrderStatus orderStatus, User client, Payment payment){
+    public Order(int id, Instant moment, OrderStatus orderStatus, Payment payment){
         super();
         this.id = id;
         this.moment = moment;
         setOrderStatus(orderStatus);
-        this.client = client;
+//        this.client = client;
         this.payment = payment;
         //this.items = items;
     }

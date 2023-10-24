@@ -30,6 +30,6 @@ public class Product implements Serializable {
     )
     private List<Category> categories;
 
-    @ManyToMany(mappedBy = "items")
+    @ManyToMany(mappedBy = "pitems")
     private List<Order> orders;
 }
