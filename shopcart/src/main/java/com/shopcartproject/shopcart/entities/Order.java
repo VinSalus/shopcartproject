@@ -50,8 +50,8 @@ public class Order implements Serializable {
         //this.items = items;
     }
 
-    @OneToMany(mappedBy="orderItem")
-    private Set <OrderItem> orderItems = new HashSet<>();
+    @OneToMany(mappedBy="id.orderId")
+    private Set <OrderItem> items = new HashSet<>();
 
     public double total(double x) {
         return x + 1; //placeholder

@@ -15,7 +15,8 @@ import java.util.List;
 @Table(name = "cart_product")
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
@@ -24,14 +25,11 @@ public class Product implements Serializable {
     @ManyToMany
     @JoinTable(
             name = "products_categories",
-            joinColumns = @JoinColumn(name="product_id", referencedColumnName = "id"),
-            inverseJoinColumns= @JoinColumn(name="category_id", referencedColumnName = "id")
+            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "id")
     )
     private List<Category> categories;
 
-//    @ManyToMany(mappedBy = "items")
-//    private List<Order> orders;
-
-//    @OneToMany(mappedBy = "orderItem")
-//    private Set<OrderItem> orderItems = new HashSet<>();
+    @ManyToMany(mappedBy = "items")
+    private List<Order> orders;
 }

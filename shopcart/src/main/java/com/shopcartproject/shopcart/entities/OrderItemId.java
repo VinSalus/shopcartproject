@@ -5,18 +5,24 @@ package com.shopcartproject.shopcart.entities;
 // in OrderItem class.
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-
-@Embeddable
 @Getter
 @Setter
 @EqualsAndHashCode
+@Embeddable
 public class OrderItemId implements Serializable {
     private static final long serialVersionUID = 1L;
+    @ManyToOne
+    @JoinColumn(name = "orderId")
     private Order orderId;
+
+    @ManyToOne
+    @JoinColumn(name = "productId")
     private Product productId;
 }
